@@ -54,7 +54,7 @@ def is_word_complete(word,guess):
 
 def user_Input():
     print("Welcome to MYSTERY WORD!!!!!!!!!")
-    mode = input("What difficulty level would you like this to be([E]asy,[M]edium, [H]ard): ")
+    mode = input("What difficulty level would you like this game to be [E]asy, [M]edium, or [H]ard: ")
 
     mode = re.sub(r'[^A-Za-z0-9]','',mode).upper()
 
