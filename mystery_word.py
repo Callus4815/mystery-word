@@ -53,6 +53,7 @@ def is_word_complete(word,guess):
     return True
 
 def user_Input():
+    print("Welcome to MYSTERY WORD!!!!!!!!!")
     mode = input("What difficulty level would you like this to be([E]asy,[M]edium, [H]ard): ")
 
     mode = re.sub(r'[^A-Za-z0-9]','',mode).upper()
@@ -116,7 +117,6 @@ while True:
         words = get_file()
         modage = user_Input()
         word = get_word(modage, words)
-        print(word)
         guess_letters(word)
 
     while True:
