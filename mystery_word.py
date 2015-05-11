@@ -96,7 +96,7 @@ def guess_letters(any_word):
             print("That is invalid, please try again.")
         elif is_word_complete(any_word,guessed_letter)==True:
                 print("Congratulations, you have solved the mystery word, it was {}.".format(any_word))
-                break;
+                break
 
         elif guess1 in any_word:
             guessed_letter.append(guess1)
