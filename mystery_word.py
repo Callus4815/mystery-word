@@ -9,7 +9,6 @@ def get_file():
 
 def easy_words(words):
     easy_words = []
-
     for chosen_word in words:
         if len(chosen_word) <= 6 and len(chosen_word) >= 4:
             easy_words.append(chosen_word)
@@ -46,7 +45,7 @@ def display_word(random_word,guess):
     return letter_in_word.upper()
 
 
-def is_word_complete(word,guess):
+def is_word_complete(word, guess):
     for letter in word:
         if letter not in guess:
             return False
@@ -54,11 +53,11 @@ def is_word_complete(word,guess):
 
 def user_Input():
     print("Welcome to MYSTERY WORD!!!!!!!!!")
-    mode = input("What difficulty level would you like this game to be [E]asy, [M]edium, or [H]ard: ")
+    mode = raw_input("What difficulty level would you like this game to be [E]asy, [M]edium, or [H]ard: ").upper()
 
-    mode = re.sub(r'[^A-Za-z0-9]','',mode).upper()
+    modage = mode.upper()
 
-    return mode
+    return modage
 
 
 
@@ -68,7 +67,6 @@ def get_word(modage, words):
         easy_list = easy_words(words)
         word1 = random_word(easy_list).upper()
         print("Your word has {} letters in it".format(len(word1)))
-
         return word1
     elif modage == 'M'.upper():
         medium_list = medium_words(words)
@@ -87,14 +85,14 @@ def guess_letters(any_word):
     guessed_letter=[]
     missed_letter = []
     while count != 0:
-        guess1 = input("Please guess a letter: ").upper()
+        guess1 = raw_input("Please guess a letter: ").upper()
         guess1 = re.sub(r'[^A-Za-z0-9]','',guess1)
         if guess1 in guessed_letter:
             print('You guessed that already but,')
         guessed_letter.append(guess1)
         if len(guess1) > 1:
             print("That is invalid, please try again.")
-        elif is_word_complete(any_word,guessed_letter)==True:
+        elif is_word_complete(any_word, guessed_letter)==True:
                 print("Congratulations, you have solved the mystery word, it was {}.".format(any_word))
                 break
 
@@ -111,21 +109,12 @@ def guess_letters(any_word):
             if count == 0:
                 print("Sorry, you lose. The word was {}".format(any_word))
     return
-
-while True:
-    if __name__ == '__main__':
-        words = get_file()
-        modage = user_Input()
-        word = get_word(modage, words)
-        guess_letters(word)
-
-    while True:
-        answer =input('Would you like to play again? (y/n): ')
-        if answer in ('y', 'n'):
-            break
-        print( 'Invalid input.')
-    if answer == 'y':
-        continue
-    else:
-        print ('Thanks for playing!, Goodbye')
-        break
+if __name__ == '__main__':
+    words = get_file()
+    modage = user_Input()
+    word = get_word(modage, words)
+    guess_letters(word)
+#when i come back..To create the dictionary for evil mode.use
+    #fam  = word_families
+    #word_fam = {}
+    #word_families.setdefault(fam,[]).append(word)
