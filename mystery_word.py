@@ -33,7 +33,7 @@ def random_word(words):
     random_word = random.choice(words)
     return random_word
 
-def display_word(random_word,guess):
+def display_word(random_word, guess):
 
     letter_in_word = []
     for letter in random_word:
@@ -89,13 +89,12 @@ def guess_letters(any_word):
         guess1 = re.sub(r'[^A-Za-z0-9]','',guess1)
         if guess1 in guessed_letter:
             print('You guessed that already but,')
-        guessed_letter.append(guess1)
-        if len(guess1) > 1:
+            guessed_letter.append(guess1)
+        elif len(guess1) > 1:
             print("That is invalid, please try again.")
         elif is_word_complete(any_word, guessed_letter)==True:
                 print("Congratulations, you have solved the mystery word, it was {}.".format(any_word))
                 break
-
         elif guess1 in any_word:
             guessed_letter.append(guess1)
             print("Good guess!!")
@@ -104,17 +103,15 @@ def guess_letters(any_word):
         elif guess1 not in any_word:
             missed_letter.append(guess1)
             print('Sorry that letter is not in the word')
-            count-=1
+            if guess1 in missed_letter:
+                count-=1
             print("You have {} guesses left".format(count))
             if count == 0:
                 print("Sorry, you lose. The word was {}".format(any_word))
     return
+
 if __name__ == '__main__':
     words = get_file()
     modage = user_Input()
     word = get_word(modage, words)
     guess_letters(word)
-#when i come back..To create the dictionary for evil mode.use
-    #fam  = word_families
-    #word_fam = {}
-    #word_families.setdefault(fam,[]).append(word)
