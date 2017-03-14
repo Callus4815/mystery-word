@@ -1,5 +1,5 @@
 # Mystery Word
-
+This is a test
 ## Description
 
 Implement the game of Mystery Word.
