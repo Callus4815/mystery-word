@@ -72,7 +72,7 @@ def get_word(modage, words):
         for i in range(len(word1)):
             word_cart.append("{}".format("_"))
         word_show = " ".join(word_cart)
-        print word_show
+        print(word_show)
         return word1
     elif modage == 'M'.upper():
         medium_list = medium_words(words)
@@ -82,7 +82,7 @@ def get_word(modage, words):
         for i in range(len(word2)):
             word_cart.append("{}".format("_"))
         word_show = " ".join(word_cart)
-        print word_show
+        print(word_show)
         return word2
     elif modage == 'H'.upper():
         hard_list = hard_words(words)
@@ -92,7 +92,7 @@ def get_word(modage, words):
         for i in range(len(word3)):
             word_cart.append("{}".format("_"))
         word_show = " ".join(word_cart)
-        print word_show
+        print(word_show)
         return word3
 
         #need to put a catch all here
@@ -100,7 +100,7 @@ def guess_letters(any_word):
     count = 8
     guessed_letter=[]
     missed_letter = []
-    print guessed_letter
+    print(guessed_letter)
     while count != 0:
         guess1 = raw_input("Please guess a letter: ").upper()
         guess1 = re.sub(r'[^A-Za-z0-9]','',guess1)        
